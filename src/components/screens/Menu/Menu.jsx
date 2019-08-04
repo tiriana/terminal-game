@@ -1,3 +1,4 @@
 import React from "react";
+import UnderConstruction from "components/screens/UnderConstruction/UnderConstruction";
 
-export default () => <div>MENU</div>;
+export default props => <UnderConstruction {...props} title="menu" />;

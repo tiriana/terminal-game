@@ -5,6 +5,8 @@ import CRT from "components/CRT/Kasmar";
 
 import Welcome from "components/screens/Welcome/Welcome";
 
+// document.body.addEventListener("keydown", console.log);
+
 function App() {
   return (
     <CRT>

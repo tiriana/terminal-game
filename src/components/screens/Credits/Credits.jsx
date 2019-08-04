@@ -1,3 +1,4 @@
 import React from "react";
+import UnderConstruction from "components/screens/UnderConstruction/UnderConstruction";
 
-export default () => <div>CREDITS</div>;
+export default props => <UnderConstruction title="credits" {...props} />;

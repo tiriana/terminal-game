@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{24:function(n,e,t){"use strict";t.r(e);var u=t(0),a=t.n(u);e.default=function(){return a.a.createElement("div",null,"WINNER")}}}]);
-//# sourceMappingURL=screen-4--GameoverWinner-GameoverWinner.e8c37c54.chunk.js.map
