@@ -1,11 +1,11 @@
 import React, { Suspense, lazy } from "react";
 
-import { Loading } from "../components/Loading/Loading";
+import { Loading } from "components/Loading/Loading";
 const loading = <Loading />;
 
 export const dynamicScreen = (screenName, { prefetch = true } = {}) => {
   const screenFactory = () =>
-    import(/* webpackChunkName: "[request]" */ `../components/screens/${screenName}/${screenName}`);
+    import(/* webpackChunkName: "screen-[index]--[request]" */ `components/screens/${screenName}/${screenName}`);
 
   const MyAsyncScreen = lazy(screenFactory);
   const MySuspendedScreen = props => (
