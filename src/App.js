@@ -1,7 +1,7 @@
 import React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { dynamicScreen } from "utils/lazy";
-import { RedLite as CRT } from "components/CRT/CRT";
+import CRT from "components/CRT/Kasmar";
 
 import Welcome from "components/screens/Welcome/Welcome";
 
