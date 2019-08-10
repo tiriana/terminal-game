@@ -2,20 +2,25 @@
 $mainFontColor: green;
 $mainBG: darken($mainFontColor, 22);
 
-$shadowPrimary: rgba(255,0,80,0.3);
-$shadowSecondary: rgba(0,30,255,0.5);
+$shadowPrimary: rgba(255, 0, 80, 0.3);
+$shadowSecondary: rgba(0, 30, 255, 0.5);
 
-body {
+.body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
   background-color: $mainBG;
   color: $mainFontColor;
   font-family: monospace;
   font-size: 24px;
   overflow: hidden;
+  padding: 25px;
 }
 
 .wrapper {
-  height: calc(100vh - 2em);
-  margin: 1em;
+  height: 100%;
 }
 //
 // .quote {
@@ -325,7 +330,8 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
   z-index: 2;
   background-size: 100% 2px, 3px 100%;
   pointer-events: none;

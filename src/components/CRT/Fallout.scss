@@ -4,26 +4,29 @@ $dark-gradient-green: #041607;
 $light-gradient-green: #11581e;
 $transparent: rgba(0, 0, 0, 0);
 
-@mixin fade-border($direction: top, $float: left){
+@mixin fade-border($direction: top, $float: left) {
   background-image: linear-gradient(to $direction, $glow-green, $transparent);
   background-repeat: no-repeat;
   background-size: 3px 5vh;
   background-position: $float;
 }
 
-html {
-  min-height: 100%;
-}
-body {
+.body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
   font-family: "Inconsolata", Helvetica, sans-serif;
   height: 100%;
   font-size: 1.6vw;
   color: $glow-green;
   background-color: $black;
-  background-image: radial-gradient(
-    $light-gradient-green,
-    $dark-gradient-green
-  );
+  background-image: radial-gradient($light-gradient-green, $dark-gradient-green);
+}
+
+.wrapper {
+  height: 100%;
 }
 
 .menu-option {
@@ -176,26 +179,10 @@ body {
   }
 }
 
-
 .overlay {
-  background: -webkit-repeating-linear-gradient(
-    -90deg,
-    $transparent 0,
-    rgba(0, 0, 0, 0.3) 50%,
-    $transparent 100%
-  );
-  background: -moz-repeating-linear-gradient(
-    180deg,
-    $transparent 0,
-    rgba(0, 0, 0, 0.3) 50%,
-    $transparent 100%
-  );
-  background: repeating-linear-gradient(
-    180deg,
-    $transparent 0,
-    rgba(0, 0, 0, 0.3) 50%,
-    $transparent 100%
-  );
+  background: -webkit-repeating-linear-gradient(-90deg, $transparent 0, rgba(0, 0, 0, 0.3) 50%, $transparent 100%);
+  background: -moz-repeating-linear-gradient(180deg, $transparent 0, rgba(0, 0, 0, 0.3) 50%, $transparent 100%);
+  background: repeating-linear-gradient(180deg, $transparent 0, rgba(0, 0, 0, 0.3) 50%, $transparent 100%);
   -webkit-background-size: auto 4px;
   background-size: auto 4px;
   position: absolute;

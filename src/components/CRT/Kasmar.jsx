@@ -4,4 +4,8 @@
 import React from "react";
 import "./Kasmar.scss";
 
-export default ({ children }) => <div className="wrapper crt">{children}</div>;
+export default ({ children }) => (
+  <div className="body">
+    <div className="wrapper crt">{children}</div>
+  </div>
+);

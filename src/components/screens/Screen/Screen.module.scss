@@ -1,0 +1,26 @@
+.screen {
+  height: 100%;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.centeredV {
+  composes: flex;
+  align-items: center;
+}
+
+.centeredH {
+  composes: flex;
+  justify-content: center;
+}
+
+.centered {
+  composes: centeredV;
+  composes: centeredH;
+}

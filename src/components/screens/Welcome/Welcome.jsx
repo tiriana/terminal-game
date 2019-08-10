@@ -1,12 +1,12 @@
 import React from "react";
-import Screen from "../Screen/Screen";
-import styles from "./Welcome.module.scss";
+import { ScreenCentered } from "../Screen/Screen";
 import { EnterHandler } from "components/Input/Keyboard/KeyboardEventHandler";
+import { HugeText } from "components/Text/Text";
 
 export default ({ onExit, history }) => (
   <EnterHandler onKeyEvent={() => history.push("menu")}>
-    <Screen className={styles.welcome}>
-      <h1>Press [ENTER]</h1>
-    </Screen>
+    <ScreenCentered>
+      <HugeText>Press [ENTER]</HugeText>
+    </ScreenCentered>
   </EnterHandler>
 );

@@ -4,8 +4,8 @@ import React from "react";
 import "./Fallout.scss";
 
 export default ({ children }) => (
-  <>
+  <div className="body">
     <div className="overlay" />
-    <div>{children}</div>
-  </>
+    <div className="wrapper">{children}</div>
+  </div>
 );
