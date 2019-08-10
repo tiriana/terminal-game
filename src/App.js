@@ -3,19 +3,9 @@ import "App.css";
 import React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { dynamicScreen } from "utils/lazy";
-import CRT from "components/CRT/Kasmar";
-
-import { AnimatedSwitch } from "react-router-transition";
+import CRT from "components/CRT/SystemaAssoult";
 
 import Welcome from "components/screens/Welcome/Welcome";
-
-const MySwitch = ({ children }) => (
-  <AnimatedSwitch wrapperComponent={false} atEnter={{ opacity: 0 }} atLeave={{ opacity: 0 }} atActive={{ opacity: 1 }}>
-    {children}
-  </AnimatedSwitch>
-);
-
-// document.body.addEventListener("keydown", console.log);
 
 function App() {
   return (
