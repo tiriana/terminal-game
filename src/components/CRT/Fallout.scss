@@ -4,6 +4,8 @@ $dark-gradient-green: #041607;
 $light-gradient-green: #11581e;
 $transparent: rgba(0, 0, 0, 0);
 
+@import url("https://fonts.googleapis.com/css?family=Inconsolata&display=swap");
+
 @mixin fade-border($direction: top, $float: left) {
   background-image: linear-gradient(to $direction, $glow-green, $transparent);
   background-repeat: no-repeat;
@@ -17,7 +19,7 @@ $transparent: rgba(0, 0, 0, 0);
   top: 0;
   bottom: 0;
   right: 0;
-  font-family: "Inconsolata", Helvetica, sans-serif;
+  // font-family: "Inconsolata", Helvetica, sans-serif;
   height: 100%;
   font-size: 1.6vw;
   color: $glow-green;
