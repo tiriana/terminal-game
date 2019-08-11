@@ -1,0 +1,21 @@
+.countdown {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number {
+  animation: zoomin 1s steps(3, end);
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoomin {
+  0% {
+    font-size: 5rem;
+  }
+  100% {
+    font-size: 50rem;
+  }
+} /*End of Zoom in Keyframes */

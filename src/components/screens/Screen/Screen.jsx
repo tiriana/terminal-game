@@ -6,11 +6,9 @@ import Grid from "components/Grid/Grid";
 import { OneTime as Glitch } from "components/Glitch/Glitch";
 
 const Screen = ({ children, className, ...rest } = {}) => (
-  <Glitch duration={200}>
-    <div className={classnames([className, styles.screen])} {...pickHTMLProps(rest)}>
-      {children}
-    </div>
-  </Glitch>
+  <div className={classnames([className, styles.screen])} {...pickHTMLProps(rest)}>
+    <Glitch duration={Math.random() * 500 + 200}>{children}</Glitch>
+  </div>
 );
 
 export default Screen;

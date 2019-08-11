@@ -4,6 +4,7 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
+    "accurate-timer": "0.0.9",
     "classnames": "^2.2.6",
     "pick-react-known-prop": "^0.1.5",
     "react": "^16.8.6",
