@@ -1,7 +1,7 @@
 {
   "homepage": ".",
   "name": "terminal-game",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "dependencies": {
     "accurate-timer": "0.0.9",
