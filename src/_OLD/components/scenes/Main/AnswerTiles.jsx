@@ -1,0 +1,140 @@
+import React from "react";
+import PropTypes from "prop-types";
+import OnAlphanumerical from "../../KeyboardListener/OnAlphanumerical";
+import styles from "./AnswerTiles.module.scss";
+import { remove as removeDiacritics } from "diacritics";
+
+import { playTypingSound, playWrongLetterSound } from "../../lib/sounds";
+
+class Letter extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  static propTypes = {
+    expected: PropTypes.string.isRequired,
+    visible: PropTypes.bool,
+    hasFocus: PropTypes.bool.isRequired,
+    incorrect: PropTypes.bool,
+    onCorrect: PropTypes.func.isRequired,
+    onIncorrect: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    visible: false,
+    incorrect: false,
+  };
+
+  onLetter = letter => {
+    letter = removeDiacritics(letter.toUpperCase());
+    const expected = removeDiacritics(this.props.expected.toUpperCase());
+    if (letter === expected) {
+      this.props.onCorrect(letter);
+    } else {
+      this.props.onIncorrect(letter);
+    }
+  };
+
+  render() {
+    return (
+      <div
+        className={[
+          styles.letter,
+          this.props.incorrect && styles.incorrect,
+          !this.props.incorrect && !this.props.visible && styles.empty,
+        ].join(" ")}
+      >
+        {this.props.incorrect || (this.props.visible && this.props.expected.toUpperCase()) || "."}
+        {this.props.hasFocus && <OnAlphanumerical callback={this.onLetter} />}
+      </div>
+    );
+  }
+}
+
+class AnswerTiles extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      canType: true,
+      focusedLetter: 0,
+      visibleLetters: [],
+      incorrectLetterIndex: null,
+      incorrectLetter: "",
+      isCorrectAnswer: false,
+    };
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevState.isCorrectAnswer === false && this.state.isCorrectAnswer === true) {
+      this.props.onCorrectAnswer();
+    }
+  }
+
+  renderLettersTiles = () => {
+    let letters = 0;
+
+    var renderedAnswer = this.props.correctAnswer.split(" ").map((word, idx) => (
+      <div className={styles.word} key={`word_${idx}`}>
+        {word.split("").map(letter => {
+          let letterIdx = letters++;
+          return (
+            <Letter
+              key={`letter_${letterIdx}`}
+              expected={letter}
+              visible={!!this.state.visibleLetters[letterIdx]}
+              incorrect={letterIdx === this.state.incorrectLetterIndex && this.state.incorrectLetter}
+              hasFocus={!this.state.isCorrectAnswer && this.state.canType && this.state.focusedLetter === letterIdx}
+              onCorrect={letter => {
+                playTypingSound();
+                this.setState(state => {
+                  const visibleLetters = [...state.visibleLetters];
+                  visibleLetters[letterIdx] = letter;
+
+                  return {
+                    visibleLetters,
+                    focusedLetter: state.focusedLetter + 1,
+                    isCorrectAnswer: state.focusedLetter === letters - 1,
+                  };
+                });
+              }}
+              onIncorrect={letter => {
+                playWrongLetterSound();
+                this.props.onWrongLetter();
+                this.setState(
+                  {
+                    canType: false,
+                    incorrectLetterIndex: letterIdx,
+                    incorrectLetter: letter,
+                  },
+                  () => {
+                    setTimeout(() => {
+                      this.setState({
+                        canType: true,
+                        incorrectLetterIndex: null,
+                        incorrectLetter: "",
+                      });
+                    }, 500);
+                  }
+                );
+              }}
+            />
+          );
+        })}
+      </div>
+    ));
+
+    return <div className={styles.wordWrapper}>{renderedAnswer}</div>;
+  };
+
+  render() {
+    return <div className={[this.state.isCorrectAnswer && styles.correctAnswer]}>{this.renderLettersTiles()}</div>;
+  }
+
+  static propTypes = {
+    correctAnswer: PropTypes.string.isRequired,
+    onWrongLetter: PropTypes.func.isRequired,
+    onCorrectAnswer: PropTypes.func.isRequired,
+  };
+}
+
+export default AnswerTiles;

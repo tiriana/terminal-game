@@ -1,0 +1,52 @@
+$letterSize: 100px;
+
+.letter {
+  border: 5px solid #674A25;
+  width: $letterSize;
+  height: $letterSize;
+  margin: 5px;
+  font-size: $letterSize * 3 / 4;
+  line-height: $letterSize;
+  text-align: center;
+}
+
+.empty {
+  color: transparent;
+  text-indent: -99999px;
+}
+
+.wordWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.word:not(:first-child) {
+  display: flex;
+  margin-left: 60px;
+}
+
+.word {
+  display: flex;
+  margin-right: 0px;
+}
+
+.incorrect {
+  border-color: #FF1434;
+
+  animation-name: blinker;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1,0,0,1);
+  animation-duration: 0.2s;
+}
+
+.correctAnswer {
+  animation-name: blinker;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1,0,0,1);
+  animation-duration: 0.5s;
+}
+
+@keyframes blinker {
+  from { opacity: 1.0; } to { opacity: 0.0; }
+}

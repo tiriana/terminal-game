@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import UnderConstruction from "components/screens/UnderConstruction/UnderConstruction";
 import { ScreenCentered, Background } from "components/screens/Screen/Screen";
 import { BigText } from "components/Text/Text";
 import styles from "./Menu.module.scss";
