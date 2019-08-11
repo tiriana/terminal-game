@@ -25,4 +25,16 @@ export const RandomGlitch = ({ children, speed = 1 } = {}) => {
   );
 };
 
-export const OneTime = ({ children } = {}) => <Glitch iterationCount={1}>{children}</Glitch>;
+export const OneTime = ({ duration = 1000, ...props }) => {
+  const timeout = useRef();
+  const [finished, setFinished] = useState(false);
+  useEffect(() => {
+    timeout.current = setTimeout(() => setFinished(true), duration);
+
+    return () => clearTimeout(timeout.current);
+  });
+
+  return finished ? props.children : <Glitch iterationCount={1}>{props.children}</Glitch>;
+};
+
+// export const OneTime = ({ children } = {}) => <Glitch iterationCount={1}>{children}</Glitch>;

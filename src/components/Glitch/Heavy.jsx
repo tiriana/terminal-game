@@ -5,7 +5,7 @@ const Heavy = ({ children } = {}) => (
   <div className={styles.glitchWrapper}>
     <div
       className={styles.glitch}
-      data-text={children
+      data-text={String(children)
         .split("")
         .reverse()
         .join("")}

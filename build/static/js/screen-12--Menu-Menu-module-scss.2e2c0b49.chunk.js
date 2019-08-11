@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{77:function(e,n,o){e.exports={menuItem:"Menu_menuItem__eT3K4",active:"Menu_active__Uj2a0"}}}]);
+//# sourceMappingURL=screen-12--Menu-Menu-module-scss.2e2c0b49.chunk.js.map

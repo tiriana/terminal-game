@@ -1,15 +1,15 @@
 import React from "react";
 import { Jargon } from "components/Jargon/Jargon";
 import Screen, { Background } from "../Screen/Screen";
-import { NormalText, BigText } from "components/Text/Text";
+import { NormalText, BigText, HugeText } from "components/Text/Text";
 import { EscHandler } from "components/Input/Keyboard/KeyboardEventHandler";
 
 export default ({ title, history, ...rest } = {}) => (
   <EscHandler onKeyEvent={() => history.push("/")}>
+    <Background />
     <Screen>
-      <Background />
       <BigText>Screen {title} is not ready</BigText>
-      <NormalText>Press [ESC] to return</NormalText>
+      <HugeText>Press [ESC] to return</HugeText>
       <pre>{JSON.stringify(rest, null, 2)}</pre>
       <div
         style={{
