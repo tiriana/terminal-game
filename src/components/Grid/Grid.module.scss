@@ -1,0 +1,62 @@
+/*
+@author Jack Philippi
+@description @NewRetroWave - I don't own any rights to the NewRetroWave logo or name 👽. Sorry it plays up on Mozilla. I'll fix it when I have a minute!
+*/
+
+@font-face {
+  font-family: OutRun;
+  src: url("https://jackphilippi.com.au/cdn/fonts/outrun_future.otf") format("opentype");
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #111;
+  background: linear-gradient(#0c141f 40%, #cf33d9 41%, #0c141f 60%);
+}
+
+.innerWrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 auto;
+  perspective: 180px;
+  perspective-origin: 50% 40%;
+}
+
+.landscape {
+  position: absolute;
+  width: 200%;
+  left: -50%;
+  height: 130%;
+  bottom: -30%;
+  background-image: -webkit-linear-gradient(top, #cf33d9 2px, transparent 2px),
+    -webkit-linear-gradient(left, #cf33d9 2px, transparent 2px);
+  background-size: 50px 50px, 80px 80px;
+  background-position: -1px -1px, -1px -1px;
+  transform: rotateX(85deg);
+  animation: moveUp 1s infinite linear;
+}
+
+@keyframes moveUp {
+  0% {
+    background-position: -1px -1px, -1px -1px;
+  }
+  100% {
+    background-position: -50px -50px, -1px -1px;
+  }
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 6px #cf33d9) drop-shadow(0 0 6px #cf33d9);
+  }
+  50% {
+    filter: drop-shadow(0 0 1px #cf33d9) drop-shadow(0 0 1px #cf33d9);
+  }
+  100% {
+    filter: drop-shadow(0 0 6px #cf33d9) drop-shadow(0 0 6px #cf33d9);
+  }
+}
