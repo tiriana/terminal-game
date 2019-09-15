@@ -5,7 +5,7 @@ import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { dynamicScreen } from "utils/lazy";
 import CRT from "components/CRT/SystemaAssoult";
 
-import Welcome from "components/screens/Welcome/Welcome";
+import Welcome from "components/screens/Welcome";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
           <Route path="/credits" component={dynamicScreen("Credits")} />
           <Route path="/leaderboard" component={dynamicScreen("Leaderboard", { prefetch: true })} />
           <Route path="/play" component={dynamicScreen("Gameplay", { prefetch: true })} />
+          <Route path="/lobby" component={dynamicScreen("Lobby", { prefetch: true })} />
           <Route path="/winner" component={dynamicScreen("GameoverWinner")} />
           <Route path="/loser" component={dynamicScreen("GameoverLoser", { prefetch: true })} />
           <Route component={dynamicScreen("NotFound")} />
