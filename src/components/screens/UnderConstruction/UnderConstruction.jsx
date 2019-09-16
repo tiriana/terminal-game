@@ -5,7 +5,8 @@ import { NormalText, BigText, HugeText } from "components/Text/Text";
 import { EscHandler } from "components/Input/Keyboard/KeyboardEventHandler";
 
 export default ({ title, history, ...rest } = {}) => (
-  <EscHandler onKeyEvent={() => history.push("/")}>
+  <>
+    <EscHandler onKeyEvent={() => history.push("/")} />
     <Background />
     <Screen>
       <BigText>Screen {title} is not ready</BigText>
@@ -21,5 +22,5 @@ export default ({ title, history, ...rest } = {}) => (
         <Jargon maxLines={10} />{" "}
       </div>
     </Screen>
-  </EscHandler>
+  </>
 );

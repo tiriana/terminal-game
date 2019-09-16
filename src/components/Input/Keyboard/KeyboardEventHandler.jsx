@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const KeyboardEventHandler = ({ children, onKeyEvent, handleKeys } = {}) => {
+const KeyboardEventHandler = ({ children = null, onKeyEvent, handleKeys } = {}) => {
   useEffect(() => {
     const handle = event => {
       console.log("Caught key: ", event.key);

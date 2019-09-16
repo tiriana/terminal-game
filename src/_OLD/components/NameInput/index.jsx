@@ -9,7 +9,7 @@ class NameInput extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {
-      name: ""
+      name: "",
     };
   }
 
@@ -21,7 +21,9 @@ class NameInput extends React.Component {
     document.removeEventListener("keydown", this.onKeyPressed);
   }
 
-  onKeyPressed = (e) => {
+  onKeyPressed = e => {
+    this.props.onKeyPressed && this.props.onKeyPressed(e);
+
     if (keycode("enter") === e.keyCode) {
       this.props.onEnter(this.state.name);
       playTypingSound();
@@ -29,7 +31,7 @@ class NameInput extends React.Component {
     if (keycode("backspace") === e.keyCode && this.state.name.length > 0) {
       playTypingSound();
       return this.setState(state => ({
-        name: state.name.slice(0, -1)
+        name: state.name.slice(0, -1),
       }));
     }
 
@@ -43,23 +45,20 @@ class NameInput extends React.Component {
       char = " ";
     }
 
-
-
     if (/[ 0-9a-z]/.test(char) && char.length === 1) {
       playTypingSound();
       return this.setState(state => ({
-        name: (state.name + char.toUpperCase()).slice(0, 20)
+        name: (state.name + char.toUpperCase()).slice(0, 20),
       }));
     }
-  }
+  };
 
   render() {
     return (
       <span onKeyDown={event => this.onKeyDown(event)}>
-        { this.state.name }
+        {this.state.name}
         <Cursor />
       </span>
-      
     );
   }
 }

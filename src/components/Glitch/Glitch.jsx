@@ -19,7 +19,7 @@ export const RandomGlitch = ({ children, speed = 1 } = {}) => {
   }, [disabled, speed]);
 
   return (
-    <Glitch iterationCount={1} disabled={disabled}>
+    <Glitch iterationCount="1" disabled={disabled}>
       {children}
     </Glitch>
   );
@@ -34,7 +34,7 @@ export const OneTime = ({ duration = 1000, ...props }) => {
     return () => clearTimeout(timeout.current);
   });
 
-  return finished ? props.children : <Glitch iterationCount={1}>{props.children}</Glitch>;
+  return finished ? props.children : <Glitch iterationCount="1">{props.children}</Glitch>;
 };
 
 // export const OneTime = ({ children } = {}) => <Glitch iterationCount={1}>{children}</Glitch>;

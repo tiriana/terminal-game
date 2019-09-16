@@ -1,0 +1,25 @@
+@import "~components/Theme/_colors";
+
+.wrapper {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.errorMessage {
+  color: $error;
+  text-align: center;
+
+  word-spacing: 10px;
+  line-spacing: 10px;
+  line-height: 3.5rem;
+  font-size: 3rem;
+  border: 5px solid red;
+  padding: 10px;
+}

@@ -19,8 +19,6 @@ const MenuItem = ({ children, active } = {}) => {
   );
 
   return item;
-
-  // return active ? <Neon>{item}</Neon> : item;
 };
 
 const items = [
